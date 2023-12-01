@@ -56,3 +56,10 @@ int is_board_valid() {
     // Implementation of is_board_valid function to check overall board validity
 }
 
+int main() {
+    char *filename = "sudoku.txt"; // Replace this with your input file name
+    sudoku_board = read_board_from_file(filename);
+    if (sudoku_board == NULL) {
+        printf("Error reading the board from file.\n");
+        return 1;
+    }
