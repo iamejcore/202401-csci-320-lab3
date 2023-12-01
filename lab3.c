@@ -31,3 +31,15 @@ int **read_board_from_file(char *filename) {
             }
         }
     }
+fclose(fp);
+    return board;
+}
+
+int exists(int element, int *arr, int size) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == element) {
+            return 1;
+        }
+    }
+    return 0;
+}
