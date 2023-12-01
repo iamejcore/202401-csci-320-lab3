@@ -63,3 +63,21 @@ int main() {
         printf("Error reading the board from file.\n");
         return 1;
     }
+
+worker_validation = (int *)calloc(27, sizeof(int));
+
+// Create threads for checking rows, columns, and squares
+    // ... (Thread creation and joining)
+
+    int validity = is_board_valid();
+    if (validity) {
+        printf("The Sudoku board is valid!\n");
+    } else {
+        printf("The Sudoku board is invalid.\n");
+    }
+
+    // Memory cleanup and thread handling
+    // ... (Memory deallocation, thread cleanup)
+
+    return 0;
+}
