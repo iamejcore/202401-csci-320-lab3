@@ -15,6 +15,7 @@ typedef struct {
     int ending_col;
 } param_struct;
 
+
 /**
  * is_board_valid - Checks if the Sudoko board is valid or not.  Returns a 0 
  *                  if the board is not valid; 1 otherwise.
@@ -26,3 +27,4 @@ int is_board_valid();
  * and returns a reference to the array.
 */
 int** read_board_from_file(char* filename);
+void *check_row(void *params);
