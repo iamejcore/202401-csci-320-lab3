@@ -14,3 +14,20 @@ typedef struct {
     int ending_col;
 } param_struct;
 
+int **read_board_from_file(char *filename) {
+    FILE *fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf("Error: could not open file %s\n", filename);
+        return NULL;
+    }
+
+    int **board = (int **)malloc(9 * sizeof(int *));
+    for (int row = 0; row < 9; row++) {
+        board[row] = (int *)malloc(9 * sizeof(int));
+        for (int col = 0; col < 9; col++) {
+            if (fscanf(fp, "%d", &board[row][col]) != 1) {
+                fclose(fp);
+                return NULL;
+            }
+        }
+    }
