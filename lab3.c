@@ -43,3 +43,16 @@ int exists(int element, int *arr, int size) {
     }
     return 0;
 }
+
+void *check_row(void *params) {
+    // Implementation of check_row function to validate rows
+}
+
+void *check_col(void *params) {
+    // Implementation of check_col function to validate columns
+}
+
+int is_board_valid() {
+    // Implementation of is_board_valid function to check overall board validity
+}
+
