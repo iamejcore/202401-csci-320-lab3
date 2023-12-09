@@ -52,5 +52,7 @@ for(int r = startrow; r <= endrow; r++){
     
 }
 
-
+int is_board_valid(){
+    pthread_t* tid;  /* the thread identifiers */
+    pthread_attr_t attr;
 
