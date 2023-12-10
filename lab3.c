@@ -83,3 +83,34 @@ for(int i = 0; i < ROW_SIZE; i++){
         pthread_create(&tid[num], NULL, validate, &parameter[num]);
         num++;
     }
+
+
+ int r = 0, c = 0;
+    for(int i = 0; i < NUM_OF_SUBGRIDS; i++){
+        parameter[num].id = num;
+        parameter[num].starting_row = r;
+        parameter[num].starting_col = c;
+        parameter[num].ending_row = r + 2;
+        parameter[num].ending_col = c + 2;
+
+        pthread_create(&tid[num], NULL, validate, &parameter[num]);
+        num++;
+	if(c == 6){
+            r += 3;
+            c = 0;
+        } 
+        else c += 3;
+    }
+
+    
+    for(int i = 0; i< NUM_OF_THREADS; i++) 
+        pthread_join(tid[i], NULL);
+    
+    for (int x = 0; x< NUM_OF_THREADS; x++)
+        if(validation[x] != 1)return 0;
+
+    free(validation);
+    free(tid);
+    return 1;
+}
+
