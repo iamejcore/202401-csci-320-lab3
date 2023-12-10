@@ -71,3 +71,15 @@ for(int i = 0; i < ROW_SIZE; i++){
 	pthread_create(&tid[num], NULL, validate, &parameter[num]);
         num++;
     }
+
+
+ for(int i = 0; i < COL_SIZE; i++){
+        parameter[num].id = num;
+        parameter[num].starting_row = 0;
+        parameter[num].starting_col = i;
+        parameter[num].ending_row = COL_SIZE - 1;
+        parameter[num].ending_col = i;
+
+        pthread_create(&tid[num], NULL, validate, &parameter[num]);
+        num++;
+    }
