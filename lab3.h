@@ -27,5 +27,3 @@ int is_board_valid();
  * and returns a reference to the array.
 */
 int** read_board_from_file(char* filename);
-void *check_row(void *params);
-int exists(int element, int *arr);
