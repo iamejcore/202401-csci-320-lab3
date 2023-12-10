@@ -53,6 +53,21 @@ for(int r = startrow; r <= endrow; r++){
 }
 
 int is_board_valid(){
+
     pthread_t* tid;  /* the thread identifiers */
     pthread_attr_t attr;
+    tid = (pthread_t*) malloc(sizeof(int*) * NUM_OF_THREADS);
+    param_struct* parameter = (param_struct*) malloc(sizeof(param_struct) * NUM_OF_THREADS);
+    validation = (int*) malloc(sizeof(int) * 27);
+    int num = 0;
 
+for(int i = 0; i < ROW_SIZE; i++){
+        parameter[num].id = num;
+        parameter[num].starting_row = i;
+        parameter[num].starting_col = 0;
+        parameter[num].ending_row = i;
+        parameter[num].ending_col = COL_SIZE - 1;
+
+	pthread_create(&tid[num], NULL, validate, &parameter[num]);
+        num++;
+    }
